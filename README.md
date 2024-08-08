@@ -1,64 +1,80 @@
-Apple Analysis ETL Pipeline
-Overview
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETL Workflow Project - Apple_Analysis</title>
+</head>
+<body>
 
-This project implements an ETL (Extract, Transform, Load) pipeline to analyze Apple product purchase data. The pipeline consists of two primary workflows:
+<h1>ETL Workflow Project - Apple_Analysis</h1>
 
-Customers who bought AirpodsAfterIphone
-Customers who bought onlyAirpodsAndIphone
-The pipeline extracts data from various file types, transforms it, and loads the results into a Delta Lake table on DBFS.
+<p>This project implements an ETL (Extract, Transform, Load) pipeline designed to analyze customer data, specifically focusing on purchases related to iPhone and AirPods. The project is organized into three main stages: Extraction, Transformation, and Loading.</p>
 
-Project Structure
+<h2>Project Structure</h2>
 
-project_root/
-├── reader_factory.py
-├── extractor.py
-├── transformer.py
-├── loader_factory.py
-├── loader.py
-├── apple_analysis.py
-└── ... (other files and directories)
-Components
+<ul>
+    <li><strong>Extract:</strong> The extraction process is handled by the <code>reader_factory</code> and <code>extractor</code> components.
+        <ul>
+            <li><code>reader_factory</code>: Responsible for identifying and reading the file type.</li>
+            <li><code>extractor</code>: Extracts the data using the <code>reader_factory</code>.</li>
+        </ul>
+    </li>
+    <li><strong>Transform:</strong> The transformation of the extracted data is managed by the <code>transform</code> component, which cleans, processes, and prepares the data for loading.</li>
+    <li><strong>Load:</strong> The loading process is executed by the <code>loader_factory</code> and <code>loader</code> components.
+        <ul>
+            <li><code>loader_factory</code>: Determines the file type for loading.</li>
+            <li><code>loader</code>: Loads the transformed data into a Delta Lake table on DBFS.</li>
+        </ul>
+    </li>
+</ul>
 
-reader_factory.py: Handles file type detection and creates appropriate reader instances.
-extractor.py: Extracts data from files using the reader_factory.
-transformer.py: Transforms extracted data as required.
-loader_factory.py: Determines the target file format (e.g., Delta Lake) and creates loader instances.
-loader.py: Loads transformed data into the target location (e.g., DBFS).
-apple_analysis.py: Orchestrates the ETL pipeline, defining the two workflows and their respective logic.
-Workflows
+<h2>Main Function</h2>
 
-Customers who bought AirpodsAfterIphone:
-Extracts relevant data from files.
-Transforms data to identify customers who purchased Airpods after buying an iPhone.
-Loads the transformed data into a Delta Lake table.
-Customers who bought onlyAirpodsAndIphone:
-Extracts relevant data from files.
-Transforms data to identify customers who purchased only Airpods and iPhones.
-Loads the transformed data into a Delta Lake table.
-Dependencies
+<p>The main function, <code>Apple_Analysis</code>, orchestrates the entire ETL pipeline. It has two primary workflows:</p>
 
-Specify required Python libraries and versions (e.g., pandas, PySpark, Delta Lake, etc.)
-Usage
+<ol>
+    <li><strong>AirPodsAfterIphone:</strong> Identifies customers who purchased AirPods after buying an iPhone.</li>
+    <li><strong>OnlyAirpodsAndIphone:</strong> Identifies customers who purchased only AirPods and iPhone.</li>
+</ol>
 
-Provide instructions on how to run the pipeline, including any necessary environment setup or configuration.
-Explain how to modify the pipeline for different data sources or output formats.
-Additional Information
+<h2>Getting Started</h2>
 
-Consider adding sections for project goals, data sources, expected outputs, and any specific requirements.
-Include details about error handling and logging mechanisms.
-Provide information on testing and deployment procedures.
-Offer contact information or support resources.
-Best Practices
+<p>To run the project, follow these steps:</p>
 
-Use clear and concise language.
-Structure the README logically, with headings and subheadings.
-Consider adding diagrams or flowcharts to visualize the pipeline.
-Keep the README updated as the project evolves.
-By following these guidelines, you can create a comprehensive README file that effectively communicates the project's purpose, structure, and usage to other developers and stakeholders.
+<ol>
+    <li>Clone the repository:</li>
+    <pre><code>git clone https://github.com/yourusername/your-repo-name.git</code></pre>
+    <li>Navigate to the project directory:</li>
+    <pre><code>cd your-repo-name</code></pre>
+    <li>Run the main function:</li>
+    <pre><code>python main.py</code></pre>
+</ol>
 
-Remember to replace placeholders with specific details about your project.
+<h2>Requirements</h2>
 
-Would you like to add more details to your README, such as specific technologies used, data sources, or expected outputs?
+<p>Ensure you have the following dependencies installed:</p>
+
+<ul>
+    <li>Python 3.x</li>
+    <li>pandas</li>
+    <li>pyspark</li>
+    <li>delta</li>
+    <li>Any other dependencies relevant to your project</li>
+</ul>
+
+<h2>Contributing</h2>
+
+<p>If you'd like to contribute to this project, please fork the repository and submit a pull request. For major changes, please open an issue to discuss what you would like to change.</p>
+
+<h2>License</h2>
+
+<p>This project is licensed under the MIT License. See the <code>LICENSE</code> file for details.</p>
+
+</body>
+</html>
+
+
 
 
 
